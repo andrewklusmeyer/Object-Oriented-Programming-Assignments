@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Lab7.Models.TAGraders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TAFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TALastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TALastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TAID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TAID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TAID })
+        </td>
+    </tr>
+}
+
+</table>

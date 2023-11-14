@@ -1,0 +1,58 @@
+﻿@model Lab7.Models.TAGraders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TAGraders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TAFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TALastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TALastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TAID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
