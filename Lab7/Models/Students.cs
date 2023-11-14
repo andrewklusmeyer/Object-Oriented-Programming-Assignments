@@ -12,12 +12,12 @@ namespace Lab7.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Students
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public Students()
         {
-            this.Registrations = new HashSet<Registration>();
+            this.Registrations = new HashSet<Registrations>();
         }
     
         public string StudentID { get; set; }
@@ -27,6 +27,6 @@ namespace Lab7.Models
         public string StudentEmail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Registration> Registrations { get; set; }
+        public virtual ICollection<Registrations> Registrations { get; set; }
     }
 }

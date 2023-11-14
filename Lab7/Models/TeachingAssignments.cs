@@ -12,16 +12,16 @@ namespace Lab7.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TAAssignment
+    public partial class TeachingAssignments
     {
-        public string TAAssignmentID { get; set; }
-        public string TAID { get; set; }
+        public string TAssignmentID { get; set; }
+        public string InstructorID { get; set; }
         public string CourseID { get; set; }
         public string TermID { get; set; }
-        public Nullable<System.DateTime> AssignmentDate { get; set; }
+        public Nullable<System.DateTime> TAssignmentDate { get; set; }
     
-        public virtual Cours Cours { get; set; }
-        public virtual StudyTerm StudyTerm { get; set; }
-        public virtual TAGrader TAGrader { get; set; }
+        public virtual Courses Cours { get; set; }
+        public virtual Instructors Instructor { get; set; }
+        public virtual StudyTerms StudyTerm { get; set; }
     }
 }

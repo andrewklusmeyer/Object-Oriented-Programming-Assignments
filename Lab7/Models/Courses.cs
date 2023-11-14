@@ -12,23 +12,26 @@ namespace Lab7.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TAGrader
+    public partial class Courses
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TAGrader()
+        public Courses()
         {
-            this.TAAssignments = new HashSet<TAAssignment>();
+            this.Registrations = new HashSet<Registrations>();
+            this.TAAssignments = new HashSet<TAAssignments>();
+            this.TeachingAssignments = new HashSet<TeachingAssignments>();
         }
     
-        public string TAID { get; set; }
-        public string TAFirstName { get; set; }
-        public string TALastName { get; set; }
-        public string TAPhone { get; set; }
-        public string TAEmail { get; set; }
+        public string CourseID { get; set; }
+        public string CourseName { get; set; }
         public string DepartmentID { get; set; }
     
         public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAAssignment> TAAssignments { get; set; }
+        public virtual ICollection<Registrations> Registrations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TAAssignments> TAAssignments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TeachingAssignments> TeachingAssignments { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\vivip\Documents\School\FALL23\OOP\Object-Oriented-Programming-Lab-7\Lab7\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\askth\OneDrive\Desktop\Classes\CS3330\Labs\Lab 7\Object-Oriented-Programming-Lab-7\Lab7\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

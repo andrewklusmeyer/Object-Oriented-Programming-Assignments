@@ -25,14 +25,14 @@ namespace Lab7.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cours> Courses { get; set; }
+        public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Instructor> Instructors { get; set; }
-        public virtual DbSet<Registration> Registrations { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<StudyTerm> StudyTerms { get; set; }
-        public virtual DbSet<TAAssignment> TAAssignments { get; set; }
-        public virtual DbSet<TAGrader> TAGraders { get; set; }
-        public virtual DbSet<TeachingAssignment> TeachingAssignments { get; set; }
+        public virtual DbSet<Instructors> Instructors1 { get; set; }
+        public virtual DbSet<Registrations> Registrations1 { get; set; }
+        public virtual DbSet<Students> Students1 { get; set; }
+        public virtual DbSet<StudyTerms> StudyTerms1 { get; set; }
+        public virtual DbSet<TAAssignments> TAAssignments1 { get; set; }
+        public virtual DbSet<TAGraders> TAGraders1 { get; set; }
+        public virtual DbSet<TeachingAssignments> TeachingAssignments1 { get; set; }
     }
 }

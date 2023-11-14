@@ -17,19 +17,19 @@ namespace Lab7.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Department()
         {
-            this.Courses = new HashSet<Cours>();
-            this.Instructors = new HashSet<Instructor>();
-            this.TAGraders = new HashSet<TAGrader>();
+            this.Courses = new HashSet<Courses>();
+            this.Instructors = new HashSet<Instructors>();
+            this.TAGraders = new HashSet<TAGraders>();
         }
     
         public string DepartmentID { get; set; }
         public string DepartmentName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cours> Courses { get; set; }
+        public virtual ICollection<Courses> Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Instructor> Instructors { get; set; }
+        public virtual ICollection<Instructors> Instructors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAGrader> TAGraders { get; set; }
+        public virtual ICollection<TAGraders> TAGraders { get; set; }
     }
 }

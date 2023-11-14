@@ -12,14 +12,14 @@ namespace Lab7.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class StudyTerm
+    public partial class StudyTerms
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StudyTerm()
+        public StudyTerms()
         {
-            this.Registrations = new HashSet<Registration>();
-            this.TAAssignments = new HashSet<TAAssignment>();
-            this.TeachingAssignments = new HashSet<TeachingAssignment>();
+            this.Registrations = new HashSet<Registrations>();
+            this.TAAssignments = new HashSet<TAAssignments>();
+            this.TeachingAssignments = new HashSet<TeachingAssignments>();
         }
     
         public string TermID { get; set; }
@@ -30,10 +30,10 @@ namespace Lab7.Models
         public string TermSeason { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Registration> Registrations { get; set; }
+        public virtual ICollection<Registrations> Registrations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAAssignment> TAAssignments { get; set; }
+        public virtual ICollection<TAAssignments> TAAssignments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TeachingAssignment> TeachingAssignments { get; set; }
+        public virtual ICollection<TeachingAssignments> TeachingAssignments { get; set; }
     }
 }
