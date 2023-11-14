@@ -26,7 +26,7 @@ namespace Lab7.Models
         }
     
         public virtual DbSet<Courses> Courses { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Departments> Departments1 { get; set; }
         public virtual DbSet<Instructors> Instructors1 { get; set; }
         public virtual DbSet<Registrations> Registrations1 { get; set; }
         public virtual DbSet<Students> Students1 { get; set; }

@@ -313,7 +313,7 @@
           <NavigationProperty Name="TAAssignments" Relationship="Self.FK_TAAssignments_Courses" FromRole="Courses" ToRole="TAAssignments" />
           <NavigationProperty Name="TeachingAssignments" Relationship="Self.FK_TeachingAssignments_Courses" FromRole="Courses" ToRole="TeachingAssignments" />
         </EntityType>
-        <EntityType Name="Department">
+        <EntityType Name="Departments">
           <Key>
             <PropertyRef Name="DepartmentID" />
           </Key>
@@ -414,7 +414,7 @@
           <NavigationProperty Name="StudyTerm" Relationship="Self.FK_TeachingAssignments_StudyTerms" FromRole="TeachingAssignments" ToRole="StudyTerms" />
         </EntityType>
         <Association Name="FK_Courses_Departments">
-          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+          <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
           <End Role="Courses" Type="SRSDBModel.Courses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departments">
@@ -462,7 +462,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Instructors_Departments">
-          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+          <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
           <End Role="Instructors" Type="SRSDBModel.Instructors" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departments">
@@ -474,7 +474,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TAGraders_Departments">
-          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+          <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
           <End Role="TAGraders" Type="SRSDBModel.TAGraders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departments">
@@ -559,7 +559,7 @@
         </Association>
         <EntityContainer Name="SRSDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="SRSDBModel.Courses" />
-          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Departments1" EntityType="SRSDBModel.Departments" />
           <EntitySet Name="Instructors1" EntityType="SRSDBModel.Instructors" />
           <EntitySet Name="Registrations1" EntityType="SRSDBModel.Registrations" />
           <EntitySet Name="Students1" EntityType="SRSDBModel.Students" />
@@ -568,7 +568,7 @@
           <EntitySet Name="TAGraders1" EntityType="SRSDBModel.TAGraders" />
           <EntitySet Name="TeachingAssignments1" EntityType="SRSDBModel.TeachingAssignments" />
           <AssociationSet Name="FK_Courses_Departments" Association="Self.FK_Courses_Departments">
-            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Departments" EntitySet="Departments1" />
             <End Role="Courses" EntitySet="Courses" />
           </AssociationSet>
           <AssociationSet Name="FK_Registrations_Courses" Association="Self.FK_Registrations_Courses">
@@ -584,11 +584,11 @@
             <End Role="TeachingAssignments" EntitySet="TeachingAssignments1" />
           </AssociationSet>
           <AssociationSet Name="FK_Instructors_Departments" Association="Self.FK_Instructors_Departments">
-            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Departments" EntitySet="Departments1" />
             <End Role="Instructors" EntitySet="Instructors1" />
           </AssociationSet>
           <AssociationSet Name="FK_TAGraders_Departments" Association="Self.FK_TAGraders_Departments">
-            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Departments" EntitySet="Departments1" />
             <End Role="TAGraders" EntitySet="TAGraders1" />
           </AssociationSet>
           <AssociationSet Name="FK_TeachingAssignments_Instructors" Association="Self.FK_TeachingAssignments_Instructors">
@@ -631,8 +631,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="SRSDBModel.Department">
+          <EntitySetMapping Name="Departments1">
+            <EntityTypeMapping TypeName="SRSDBModel.Departments">
               <MappingFragment StoreEntitySet="Departments">
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />

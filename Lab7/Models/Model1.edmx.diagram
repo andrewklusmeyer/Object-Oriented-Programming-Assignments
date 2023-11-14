@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7f929f7bf3a84ade99c4ac8f080ba123" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="SRSDBModel.Courses" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SRSDBModel.Department" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSDBModel.Departments" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SRSDBModel.Instructors" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SRSDBModel.Registrations" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SRSDBModel.Students" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
