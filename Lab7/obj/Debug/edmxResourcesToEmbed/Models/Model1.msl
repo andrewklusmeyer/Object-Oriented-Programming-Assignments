@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SRSDBModelStoreContainer" CdmEntityContainer="SRSDBEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="SRSDBModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="SRSDBModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="SRSDBModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructors">
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="InstructorFirstName" ColumnName="InstructorFirstName" />
+          <ScalarProperty Name="InstructorLastName" ColumnName="InstructorLastName" />
+          <ScalarProperty Name="InstructorPhone" ColumnName="InstructorPhone" />
+          <ScalarProperty Name="InstructorEmail" ColumnName="InstructorEmail" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="SRSDBModel.Registration">
+        <MappingFragment StoreEntitySet="Registrations">
+          <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="SRSDBModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudyTerms">
+      <EntityTypeMapping TypeName="SRSDBModel.StudyTerm">
+        <MappingFragment StoreEntitySet="StudyTerms">
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="TermName" ColumnName="TermName" />
+          <ScalarProperty Name="TermStartDate" ColumnName="TermStartDate" />
+          <ScalarProperty Name="TermEndDate" ColumnName="TermEndDate" />
+          <ScalarProperty Name="TermYear" ColumnName="TermYear" />
+          <ScalarProperty Name="TermSeason" ColumnName="TermSeason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAAssignments">
+      <EntityTypeMapping TypeName="SRSDBModel.TAAssignment">
+        <MappingFragment StoreEntitySet="TAAssignments">
+          <ScalarProperty Name="TAAssignmentID" ColumnName="TAAssignmentID" />
+          <ScalarProperty Name="TAID" ColumnName="TAID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="AssignmentDate" ColumnName="AssignmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAGraders">
+      <EntityTypeMapping TypeName="SRSDBModel.TAGrader">
+        <MappingFragment StoreEntitySet="TAGraders">
+          <ScalarProperty Name="TAID" ColumnName="TAID" />
+          <ScalarProperty Name="TAFirstName" ColumnName="TAFirstName" />
+          <ScalarProperty Name="TALastName" ColumnName="TALastName" />
+          <ScalarProperty Name="TAPhone" ColumnName="TAPhone" />
+          <ScalarProperty Name="TAEmail" ColumnName="TAEmail" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeachingAssignments">
+      <EntityTypeMapping TypeName="SRSDBModel.TeachingAssignment">
+        <MappingFragment StoreEntitySet="TeachingAssignments">
+          <ScalarProperty Name="TAssignmentID" ColumnName="TAssignmentID" />
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="TAssignmentDate" ColumnName="TAssignmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
