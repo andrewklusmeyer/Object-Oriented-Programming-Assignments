@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SRSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Cours">
+  <EntityType Name="Courses">
     <Key>
       <PropertyRef Name="CourseID" />
     </Key>
@@ -12,7 +12,7 @@
     <NavigationProperty Name="TAAssignments" Relationship="Self.FK_TAAssignments_Courses" FromRole="Courses" ToRole="TAAssignments" />
     <NavigationProperty Name="TeachingAssignments" Relationship="Self.FK_TeachingAssignments_Courses" FromRole="Courses" ToRole="TeachingAssignments" />
   </EntityType>
-  <EntityType Name="Department">
+  <EntityType Name="Departments">
     <Key>
       <PropertyRef Name="DepartmentID" />
     </Key>
@@ -22,7 +22,7 @@
     <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructors_Departments" FromRole="Departments" ToRole="Instructors" />
     <NavigationProperty Name="TAGraders" Relationship="Self.FK_TAGraders_Departments" FromRole="Departments" ToRole="TAGraders" />
   </EntityType>
-  <EntityType Name="Instructor">
+  <EntityType Name="Instructors">
     <Key>
       <PropertyRef Name="InstructorID" />
     </Key>
@@ -35,7 +35,7 @@
     <NavigationProperty Name="Department" Relationship="Self.FK_Instructors_Departments" FromRole="Instructors" ToRole="Departments" />
     <NavigationProperty Name="TeachingAssignments" Relationship="Self.FK_TeachingAssignments_Instructors" FromRole="Instructors" ToRole="TeachingAssignments" />
   </EntityType>
-  <EntityType Name="Registration">
+  <EntityType Name="Registrations">
     <Key>
       <PropertyRef Name="RegistrationID" />
     </Key>
@@ -44,11 +44,11 @@
     <Property Name="CourseID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TermID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Cours" Relationship="Self.FK_Registrations_Courses" FromRole="Registrations" ToRole="Courses" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Registrations_Courses" FromRole="Registrations" ToRole="Courses" />
     <NavigationProperty Name="Student" Relationship="Self.FK_Registrations_Students" FromRole="Registrations" ToRole="Students" />
     <NavigationProperty Name="StudyTerm" Relationship="Self.FK_Registrations_StudyTerms" FromRole="Registrations" ToRole="StudyTerms" />
   </EntityType>
-  <EntityType Name="Student">
+  <EntityType Name="Students">
     <Key>
       <PropertyRef Name="StudentID" />
     </Key>
@@ -59,7 +59,7 @@
     <Property Name="StudentEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Registrations" Relationship="Self.FK_Registrations_Students" FromRole="Students" ToRole="Registrations" />
   </EntityType>
-  <EntityType Name="StudyTerm">
+  <EntityType Name="StudyTerms">
     <Key>
       <PropertyRef Name="TermID" />
     </Key>
@@ -73,7 +73,7 @@
     <NavigationProperty Name="TAAssignments" Relationship="Self.FK_TAAssignments_StudyTerms" FromRole="StudyTerms" ToRole="TAAssignments" />
     <NavigationProperty Name="TeachingAssignments" Relationship="Self.FK_TeachingAssignments_StudyTerms" FromRole="StudyTerms" ToRole="TeachingAssignments" />
   </EntityType>
-  <EntityType Name="TAAssignment">
+  <EntityType Name="TAAssignments">
     <Key>
       <PropertyRef Name="TAAssignmentID" />
     </Key>
@@ -86,7 +86,7 @@
     <NavigationProperty Name="StudyTerm" Relationship="Self.FK_TAAssignments_StudyTerms" FromRole="TAAssignments" ToRole="StudyTerms" />
     <NavigationProperty Name="TAGrader" Relationship="Self.FK_TAAssignments_TAGraders" FromRole="TAAssignments" ToRole="TAGraders" />
   </EntityType>
-  <EntityType Name="TAGrader">
+  <EntityType Name="TAGraders">
     <Key>
       <PropertyRef Name="TAID" />
     </Key>
@@ -99,7 +99,7 @@
     <NavigationProperty Name="Department" Relationship="Self.FK_TAGraders_Departments" FromRole="TAGraders" ToRole="Departments" />
     <NavigationProperty Name="TAAssignments" Relationship="Self.FK_TAAssignments_TAGraders" FromRole="TAGraders" ToRole="TAAssignments" />
   </EntityType>
-  <EntityType Name="TeachingAssignment">
+  <EntityType Name="TeachingAssignments">
     <Key>
       <PropertyRef Name="TAssignmentID" />
     </Key>
@@ -113,8 +113,8 @@
     <NavigationProperty Name="StudyTerm" Relationship="Self.FK_TeachingAssignments_StudyTerms" FromRole="TeachingAssignments" ToRole="StudyTerms" />
   </EntityType>
   <Association Name="FK_Courses_Departments">
-    <End Role="Departments" Type="Self.Department" Multiplicity="1" />
-    <End Role="Courses" Type="Self.Cours" Multiplicity="*" />
+    <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
+    <End Role="Courses" Type="SRSDBModel.Courses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Departments">
         <PropertyRef Name="DepartmentID" />
@@ -125,8 +125,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Registrations_Courses">
-    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
-    <End Role="Registrations" Type="Self.Registration" Multiplicity="*" />
+    <End Role="Courses" Type="SRSDBModel.Courses" Multiplicity="1" />
+    <End Role="Registrations" Type="SRSDBModel.Registrations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Courses">
         <PropertyRef Name="CourseID" />
@@ -137,8 +137,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TAAssignments_Courses">
-    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
-    <End Role="TAAssignments" Type="Self.TAAssignment" Multiplicity="*" />
+    <End Role="Courses" Type="SRSDBModel.Courses" Multiplicity="1" />
+    <End Role="TAAssignments" Type="SRSDBModel.TAAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Courses">
         <PropertyRef Name="CourseID" />
@@ -149,8 +149,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeachingAssignments_Courses">
-    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
-    <End Role="TeachingAssignments" Type="Self.TeachingAssignment" Multiplicity="*" />
+    <End Role="Courses" Type="SRSDBModel.Courses" Multiplicity="1" />
+    <End Role="TeachingAssignments" Type="SRSDBModel.TeachingAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Courses">
         <PropertyRef Name="CourseID" />
@@ -161,8 +161,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Instructors_Departments">
-    <End Role="Departments" Type="Self.Department" Multiplicity="1" />
-    <End Role="Instructors" Type="Self.Instructor" Multiplicity="*" />
+    <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
+    <End Role="Instructors" Type="SRSDBModel.Instructors" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Departments">
         <PropertyRef Name="DepartmentID" />
@@ -173,8 +173,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TAGraders_Departments">
-    <End Role="Departments" Type="Self.Department" Multiplicity="1" />
-    <End Role="TAGraders" Type="Self.TAGrader" Multiplicity="*" />
+    <End Role="Departments" Type="SRSDBModel.Departments" Multiplicity="1" />
+    <End Role="TAGraders" Type="SRSDBModel.TAGraders" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Departments">
         <PropertyRef Name="DepartmentID" />
@@ -185,8 +185,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeachingAssignments_Instructors">
-    <End Role="Instructors" Type="Self.Instructor" Multiplicity="1" />
-    <End Role="TeachingAssignments" Type="Self.TeachingAssignment" Multiplicity="*" />
+    <End Role="Instructors" Type="SRSDBModel.Instructors" Multiplicity="1" />
+    <End Role="TeachingAssignments" Type="SRSDBModel.TeachingAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Instructors">
         <PropertyRef Name="InstructorID" />
@@ -197,8 +197,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Registrations_Students">
-    <End Role="Students" Type="Self.Student" Multiplicity="1" />
-    <End Role="Registrations" Type="Self.Registration" Multiplicity="*" />
+    <End Role="Students" Type="SRSDBModel.Students" Multiplicity="1" />
+    <End Role="Registrations" Type="SRSDBModel.Registrations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Students">
         <PropertyRef Name="StudentID" />
@@ -209,8 +209,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Registrations_StudyTerms">
-    <End Role="StudyTerms" Type="Self.StudyTerm" Multiplicity="1" />
-    <End Role="Registrations" Type="Self.Registration" Multiplicity="*" />
+    <End Role="StudyTerms" Type="SRSDBModel.StudyTerms" Multiplicity="1" />
+    <End Role="Registrations" Type="SRSDBModel.Registrations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="StudyTerms">
         <PropertyRef Name="TermID" />
@@ -221,8 +221,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TAAssignments_StudyTerms">
-    <End Role="StudyTerms" Type="Self.StudyTerm" Multiplicity="1" />
-    <End Role="TAAssignments" Type="Self.TAAssignment" Multiplicity="*" />
+    <End Role="StudyTerms" Type="SRSDBModel.StudyTerms" Multiplicity="1" />
+    <End Role="TAAssignments" Type="SRSDBModel.TAAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="StudyTerms">
         <PropertyRef Name="TermID" />
@@ -233,8 +233,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TeachingAssignments_StudyTerms">
-    <End Role="StudyTerms" Type="Self.StudyTerm" Multiplicity="1" />
-    <End Role="TeachingAssignments" Type="Self.TeachingAssignment" Multiplicity="*" />
+    <End Role="StudyTerms" Type="SRSDBModel.StudyTerms" Multiplicity="1" />
+    <End Role="TeachingAssignments" Type="SRSDBModel.TeachingAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="StudyTerms">
         <PropertyRef Name="TermID" />
@@ -245,8 +245,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TAAssignments_TAGraders">
-    <End Role="TAGraders" Type="Self.TAGrader" Multiplicity="1" />
-    <End Role="TAAssignments" Type="Self.TAAssignment" Multiplicity="*" />
+    <End Role="TAGraders" Type="SRSDBModel.TAGraders" Multiplicity="1" />
+    <End Role="TAAssignments" Type="SRSDBModel.TAAssignments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TAGraders">
         <PropertyRef Name="TAID" />
@@ -257,62 +257,62 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="SRSDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Courses" EntityType="Self.Cours" />
-    <EntitySet Name="Departments" EntityType="Self.Department" />
-    <EntitySet Name="Instructors" EntityType="Self.Instructor" />
-    <EntitySet Name="Registrations" EntityType="Self.Registration" />
-    <EntitySet Name="Students" EntityType="Self.Student" />
-    <EntitySet Name="StudyTerms" EntityType="Self.StudyTerm" />
-    <EntitySet Name="TAAssignments" EntityType="Self.TAAssignment" />
-    <EntitySet Name="TAGraders" EntityType="Self.TAGrader" />
-    <EntitySet Name="TeachingAssignments" EntityType="Self.TeachingAssignment" />
+    <EntitySet Name="Courses" EntityType="SRSDBModel.Courses" />
+    <EntitySet Name="Departments1" EntityType="SRSDBModel.Departments" />
+    <EntitySet Name="Instructors1" EntityType="SRSDBModel.Instructors" />
+    <EntitySet Name="Registrations1" EntityType="SRSDBModel.Registrations" />
+    <EntitySet Name="Students1" EntityType="SRSDBModel.Students" />
+    <EntitySet Name="StudyTerms1" EntityType="SRSDBModel.StudyTerms" />
+    <EntitySet Name="TAAssignments1" EntityType="SRSDBModel.TAAssignments" />
+    <EntitySet Name="TAGraders1" EntityType="SRSDBModel.TAGraders" />
+    <EntitySet Name="TeachingAssignments1" EntityType="SRSDBModel.TeachingAssignments" />
     <AssociationSet Name="FK_Courses_Departments" Association="Self.FK_Courses_Departments">
-      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Departments" EntitySet="Departments1" />
       <End Role="Courses" EntitySet="Courses" />
     </AssociationSet>
     <AssociationSet Name="FK_Registrations_Courses" Association="Self.FK_Registrations_Courses">
       <End Role="Courses" EntitySet="Courses" />
-      <End Role="Registrations" EntitySet="Registrations" />
+      <End Role="Registrations" EntitySet="Registrations1" />
     </AssociationSet>
     <AssociationSet Name="FK_TAAssignments_Courses" Association="Self.FK_TAAssignments_Courses">
       <End Role="Courses" EntitySet="Courses" />
-      <End Role="TAAssignments" EntitySet="TAAssignments" />
+      <End Role="TAAssignments" EntitySet="TAAssignments1" />
     </AssociationSet>
     <AssociationSet Name="FK_TeachingAssignments_Courses" Association="Self.FK_TeachingAssignments_Courses">
       <End Role="Courses" EntitySet="Courses" />
-      <End Role="TeachingAssignments" EntitySet="TeachingAssignments" />
+      <End Role="TeachingAssignments" EntitySet="TeachingAssignments1" />
     </AssociationSet>
     <AssociationSet Name="FK_Instructors_Departments" Association="Self.FK_Instructors_Departments">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="Departments" EntitySet="Departments1" />
+      <End Role="Instructors" EntitySet="Instructors1" />
     </AssociationSet>
     <AssociationSet Name="FK_TAGraders_Departments" Association="Self.FK_TAGraders_Departments">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="TAGraders" EntitySet="TAGraders" />
+      <End Role="Departments" EntitySet="Departments1" />
+      <End Role="TAGraders" EntitySet="TAGraders1" />
     </AssociationSet>
     <AssociationSet Name="FK_TeachingAssignments_Instructors" Association="Self.FK_TeachingAssignments_Instructors">
-      <End Role="Instructors" EntitySet="Instructors" />
-      <End Role="TeachingAssignments" EntitySet="TeachingAssignments" />
+      <End Role="Instructors" EntitySet="Instructors1" />
+      <End Role="TeachingAssignments" EntitySet="TeachingAssignments1" />
     </AssociationSet>
     <AssociationSet Name="FK_Registrations_Students" Association="Self.FK_Registrations_Students">
-      <End Role="Students" EntitySet="Students" />
-      <End Role="Registrations" EntitySet="Registrations" />
+      <End Role="Students" EntitySet="Students1" />
+      <End Role="Registrations" EntitySet="Registrations1" />
     </AssociationSet>
     <AssociationSet Name="FK_Registrations_StudyTerms" Association="Self.FK_Registrations_StudyTerms">
-      <End Role="StudyTerms" EntitySet="StudyTerms" />
-      <End Role="Registrations" EntitySet="Registrations" />
+      <End Role="StudyTerms" EntitySet="StudyTerms1" />
+      <End Role="Registrations" EntitySet="Registrations1" />
     </AssociationSet>
     <AssociationSet Name="FK_TAAssignments_StudyTerms" Association="Self.FK_TAAssignments_StudyTerms">
-      <End Role="StudyTerms" EntitySet="StudyTerms" />
-      <End Role="TAAssignments" EntitySet="TAAssignments" />
+      <End Role="StudyTerms" EntitySet="StudyTerms1" />
+      <End Role="TAAssignments" EntitySet="TAAssignments1" />
     </AssociationSet>
     <AssociationSet Name="FK_TeachingAssignments_StudyTerms" Association="Self.FK_TeachingAssignments_StudyTerms">
-      <End Role="StudyTerms" EntitySet="StudyTerms" />
-      <End Role="TeachingAssignments" EntitySet="TeachingAssignments" />
+      <End Role="StudyTerms" EntitySet="StudyTerms1" />
+      <End Role="TeachingAssignments" EntitySet="TeachingAssignments1" />
     </AssociationSet>
     <AssociationSet Name="FK_TAAssignments_TAGraders" Association="Self.FK_TAAssignments_TAGraders">
-      <End Role="TAGraders" EntitySet="TAGraders" />
-      <End Role="TAAssignments" EntitySet="TAAssignments" />
+      <End Role="TAGraders" EntitySet="TAGraders1" />
+      <End Role="TAAssignments" EntitySet="TAAssignments1" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
