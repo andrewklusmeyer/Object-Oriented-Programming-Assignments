@@ -345,7 +345,7 @@
           <Property Name="CourseID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TermID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Cours" Relationship="Self.FK_Registrations_Courses" FromRole="Registrations" ToRole="Courses" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Registrations_Courses" FromRole="Registrations" ToRole="Courses" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Registrations_Students" FromRole="Registrations" ToRole="Students" />
           <NavigationProperty Name="StudyTerm" Relationship="Self.FK_Registrations_StudyTerms" FromRole="Registrations" ToRole="StudyTerms" />
         </EntityType>

@@ -20,7 +20,7 @@ namespace Lab7.Models
         public string TermID { get; set; }
         public Nullable<System.DateTime> RegistrationDate { get; set; }
     
-        public virtual Courses Cours { get; set; }
+        public virtual Courses Course { get; set; }
         public virtual Students Student { get; set; }
         public virtual StudyTerms StudyTerm { get; set; }
     }
